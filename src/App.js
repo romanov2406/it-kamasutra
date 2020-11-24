@@ -14,18 +14,16 @@ import {
 } from "react-router-dom";
 
 
-function App() {
+function App(props) {
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Nav />
         <div className="app-wrapper-content content">
-            <Route exact path="/dialog" render={() => <Dialogs/>} />
-            <Route exact path="/profile" render={() => <Profile/>} />
-        </div>
+            <Route exact path="/dialog" render={() => <Dialogs state={props.state.messagesPage} state={props.state.messagesPage}/>} />
+            <Route exact path="/profile" render={() => <Profile  profilePage={props.state.profilePage} addPost={props.addPost}/>} />
+        </div>      
       </div>
-    </BrowserRouter>
   );
 }
 

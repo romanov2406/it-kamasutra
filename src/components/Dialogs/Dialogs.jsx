@@ -7,70 +7,31 @@ import Message from './Message/Message';
 
 
 
-class Dialogs extends Component {
+const Dialogs = (props) => {
   
-    dialogData = [
-        {
-            id: 1,
-            name: 'Roman'
-        },
-        {
-            id: 2,
-            name: 'Ivan'
-        },
-        {
-            id: 3,
-            name: 'Stapan'
-        },
-        {
-            id: 4,
-            name: 'Taras'
-        },
-
-    ]
+  
 
 
-    dialogMessages = [
-        {
-            id: 1,
-            message: 'Fuck you'
-        },
-        {
-            id: 2,
-            message: 'Ivan fddf'
-        },
-        {
-            id: 3,
-            message: 'Stapanfdfdfdfd'
-        },
-        {
-            id: 4,
-            message: 'Tarasfdfdfdfdfd'
-        },
-
-    ]
+    let messages = props.state.message.map(mess => <Message message={mess.message} />)
+    let dialog = props.state.dialog.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
 
 
-    messages = this.dialogMessages.map(mess => <Message message={mess.message} />)
-    dialog = this.dialogData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
-
-    render() {
         return (
             <BrowserRouter>
                 <div>
                     <div className="dialogTitle"> Dialogs </div>
                     <div className='dialogs'>
                         <div className='dialogs-item'>
-                            {this.dialog}
+                            {dialog}
                         </div>
                         <div className="messages">
-                            {this.messages}
+                            {messages}
                         </div>
                     </div>
                 </div>
             </BrowserRouter>
         )
-    }
+  
 }
 
 export default Dialogs

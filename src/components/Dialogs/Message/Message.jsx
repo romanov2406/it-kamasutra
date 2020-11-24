@@ -2,18 +2,12 @@ import React, { Component } from 'react';
 import './../Dialogs.module.css';
 
 
-class Message extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            mes:props.message
-        }
-    }
-    render() {
-        console.log(this.state.mes);
+const Message = (props) => {
+    
+   
         return (
-            <div className="message active">{this.state.mes}</div>
+            <div className="message active">{props.message}</div>
         )
-    }
+   
 }
 export default Message
